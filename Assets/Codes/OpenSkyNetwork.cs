@@ -7,11 +7,13 @@ using System.IO;
 
 public class OpenSkyNetwork : MonoBehaviour
 {
+    public GameObject planePrefab;
+
     private String api = "https://opensky-network.org/api/flights/arrival?airport=EFHK&begin={0}&end={1}";
     // Start is called before the first frame update
     void Start()
     {
-        GetAirPlane();
+        createPlanes(GetAirPlanesFromREST());
     }
 
     // Update is called once per frame
@@ -20,7 +22,7 @@ public class OpenSkyNetwork : MonoBehaviour
         
     }
 
-    private List<Plane> GetAirPlane()
+    private List<Plane> GetAirPlanesFromREST()
     {
         long yesterday = new DateTimeOffset(System.DateTime.Now.AddDays(-1)).ToUnixTimeSeconds();
         long currentTime = new DateTimeOffset(System.DateTime.Now).ToUnixTimeSeconds();
@@ -44,13 +46,22 @@ public class OpenSkyNetwork : MonoBehaviour
             }
         }
 
-        Debug.Log(System.DateTime.Now + "");
+        return planes;
+    }
 
+    private void createPlanes(List<Plane> planes)
+    {
+        //Create planes on the map
         foreach (Plane plane in planes)
         {
-            Debug.Log(plane.callsign + ", " + UnixTimeStampToDateTime(plane.firstSeen) + ", " + UnixTimeStampToDateTime(plane.lastSeen) +  ", " +plane.estDepartureAirport + ", " + plane.estArrivalAirport);
+            ///Add coordinates here
+            GameObject planeObject = Instantiate(planePrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            PlaneLogic planeLogic = planeObject.GetComponent<PlaneLogic>();
+            planeLogic.departureTime = plane.firstSeen;
+            planeLogic.arrivalTime = plane.lastSeen;
+
+            Debug.Log(plane.callsign + ", " + UnixTimeStampToDateTime(planeLogic.departureTime) + ", " + UnixTimeStampToDateTime(planeLogic.arrivalTime) + ", " + plane.estDepartureAirport + ", " + plane.estArrivalAirport);
         }
-        return planes;
     }
 
     public static DateTime UnixTimeStampToDateTime(double unixTimeStamp)
