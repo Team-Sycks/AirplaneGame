@@ -13,6 +13,7 @@ public class OpenSkyNetwork : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        readAirportCSV();
         createPlanes(GetAirPlanesFromREST());
     }
 
@@ -64,6 +65,39 @@ public class OpenSkyNetwork : MonoBehaviour
         }
     }
 
+    private void readAirportCSV()
+    {
+        String fileData = System.IO.File.ReadAllText(Application.dataPath + "/Data/airports.csv");
+        String[] lines = fileData.Split(char.Parse("\n"));
+
+        foreach(String s in lines) {
+            String[] sLines = s.Split(char.Parse(","));
+
+            if (sLines.Length > 7)
+            {
+                String name = sLines[1].Trim('"');
+                String airportCode = sLines[5].Trim('"');
+                String longitude = sLines[6];
+                String latitude = sLines[7];
+                Debug.Log(name + ", " + airportCode + ", " + longitude + ", " + latitude);
+
+                try
+                {
+                    Airport airport = new Airport();
+
+                    airport.airportName = name;
+                    airport.airportCode = airportCode;
+                    airport.longitude = Convert.ToDecimal(longitude);
+                    airport.latitude = Convert.ToDecimal(latitude);
+
+                } catch (FormatException e)
+                {
+                    Debug.Log(e.Message);
+                }
+            }
+        }
+    }
+
     public static DateTime UnixTimeStampToDateTime(double unixTimeStamp)
     {
         // Unix timestamp is seconds past epoch
@@ -77,6 +111,7 @@ public class OpenSkyNetwork : MonoBehaviour
     {
         public List<Plane> planes;
     }
+
     [Serializable]
     public class Plane
     {
@@ -85,5 +120,14 @@ public class OpenSkyNetwork : MonoBehaviour
         public int lastSeen;
         public String estDepartureAirport;
         public String estArrivalAirport;
+    }
+
+    [Serializable]
+    public class Airport
+    {
+        public String airportName;
+        public String airportCode;
+        public decimal longitude;
+        public decimal latitude;
     }
 }
