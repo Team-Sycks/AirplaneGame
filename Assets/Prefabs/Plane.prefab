@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5978707357573331706}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 8.813613, y: 6.9664335, z: -4.049626}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 100, y: 100, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -94,6 +94,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   departureTime: 0
   arrivalTime: 0
+  longitude: 0
+  latitude: 0
   departureCoordinates: {x: 0, y: 0, z: 0}
   arrivalCoordinates: {x: 0, y: 0, z: 0}
   flightPercentage: 0
