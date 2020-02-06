@@ -219,7 +219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panSpeed: 100
   panBorderThickness: 10
-  panLimit: {x: 1000, y: 2000}
+  panLimit: {x: 1000, y: 1000}
   scrollSpeed: 20
   minY: 1
   maxY: 5
@@ -385,7 +385,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507720457}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2000, y: 0, z: -1000}
+  m_LocalPosition: {x: -3132, y: 0, z: -3132}
   m_LocalScale: {x: 45, y: 1, z: 25}
   m_Children: []
   m_Father: {fileID: 0}
