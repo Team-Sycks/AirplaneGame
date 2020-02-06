@@ -5,6 +5,7 @@ using UnityEngine;
 public class new_movement : MonoBehaviour
 {
     public GameObject g;
+    public Transform target;
     Vector3[] points;
     int index;
     int i;
@@ -24,8 +25,8 @@ public class new_movement : MonoBehaviour
         g.transform.position = Vector3.MoveTowards(g.transform.position,
                                                           points[index], Time.deltaTime * 2);
 
-        // Looks at zero
-        g.transform.LookAt(Vector3.zero);
+        // Looks at points
+        g.transform.LookAt(points[0]);
 
 
         // Alla olevan Linen poistaminen --> Gameobject liikkuu vain ensimmäiseen pointtiin
