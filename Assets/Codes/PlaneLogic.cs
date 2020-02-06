@@ -18,8 +18,8 @@ public class PlaneLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        float latScale = 2000 / 180.0f;  //latitude goes from 0(Npole) to 180(Spole)
-        float longiScale = 4000 / 360.0f; //longitude goes from 0 to 360 (Greenwich)
+        float latScale = 967 / 180.0f;  //latitude goes from 0(Npole) to 180(Spole)
+        float longiScale = 1920 / 360.0f; //longitude goes from 0 to 360 (Greenwich)
         float z = latitude * latScale;
         float x = longitude * longiScale;
 
