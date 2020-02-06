@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: 515dc5dda1bf474408df93cf1fc0c397, type: 3}
+  - {fileID: 2100000, guid: 1fe75324c8dfbe748be04942c5d0587b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,3 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30c7b8736f645604a86d264288c9e77f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  departureTime: 0
+  arrivalTime: 0
+  departureCoordinates: {x: 0, y: 0, z: 0}
+  arrivalCoordinates: {x: 0, y: 0, z: 0}
+  flightPercentage: 0
