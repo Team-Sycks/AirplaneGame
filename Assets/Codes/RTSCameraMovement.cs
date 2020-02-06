@@ -2,13 +2,13 @@
 
 public class RTSCameraMovement : MonoBehaviour
 {
-    public float panSpeed = 100f;
+    public float panSpeed = 10f;
     public float panBorderThickness = 10f;
     public Vector2 panLimit;
 
     public float scrollSpeed = 20f;
-    public float minY = 20f;
-    public float maxY = 120f;
+    public float minY = 1f;
+    public float maxY = 3f;
 
     // Update is called once per frame
     void Update()

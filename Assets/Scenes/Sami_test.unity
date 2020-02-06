@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 365201825}
   - component: {fileID: 365201824}
   - component: {fileID: 365201823}
+  - component: {fileID: 365201826}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -204,6 +205,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &365201826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365201822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a72c3cc7f4abc6c439150e66ec4d1f0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panSpeed: 100
+  panBorderThickness: 10
+  panLimit: {x: 1000, y: 2000}
+  scrollSpeed: 20
+  minY: 1
+  maxY: 5
 --- !u!1 &490808359
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +342,7 @@ TerrainCollider:
   m_GameObject: {fileID: 1507720457}
   m_Material: {fileID: 0}
   m_Enabled: 1
-  m_TerrainData: {fileID: 15600000, guid: 1ed9a406d4129ed4680541bc74fbaeff, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: 4bbe9b2dbe82f3f4197924e00b179777, type: 2}
   m_EnableTreeColliders: 1
 --- !u!218 &1507720459
 Terrain:
@@ -334,7 +353,7 @@ Terrain:
   m_GameObject: {fileID: 1507720457}
   m_Enabled: 1
   serializedVersion: 6
-  m_TerrainData: {fileID: 15600000, guid: 1ed9a406d4129ed4680541bc74fbaeff, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: 4bbe9b2dbe82f3f4197924e00b179777, type: 2}
   m_TreeDistance: 5000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
@@ -366,7 +385,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507720457}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -2000, y: 0, z: -1000}
   m_LocalScale: {x: 45, y: 1, z: 25}
   m_Children: []
   m_Father: {fileID: 0}
