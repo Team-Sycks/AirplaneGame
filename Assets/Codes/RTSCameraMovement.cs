@@ -23,7 +23,7 @@ public class RTSCameraMovement : MonoBehaviour
         {
             pos.z -= panSpeed * Time.deltaTime;
         }
-        if (Input.GetKey("d") || Input.mousePosition.x >= Screen.height - panBorderThickness)
+        if (Input.GetKey("d") || Input.mousePosition.x >= Screen.width - panBorderThickness)
         {
             pos.x += panSpeed * Time.deltaTime;
         }
